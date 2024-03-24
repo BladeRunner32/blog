@@ -1,0 +1,26 @@
+<%= render "special_layouts/header" %>
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+<% if @article.created_at != @article.updated_at %>
+  <p> Updated at: <%= @article.updated_at %></p>
+<% else %>
+  <p> Created at: <%= @article.created_at %></p>
+<% end %>
+
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+</ul>
+<ul>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"  
+  }%></li>
+</ul>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
