@@ -4,13 +4,50 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.7"
+gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+
+gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
+
+gem 'pg'
+
+gem 'figaro'
+
+gem 'slim'
+
+gem 'pry'
+
+gem 'bcrypt'
+
+gem 'sidekiq'
+
+gem 'redis'
+
+gem "sidekiq-cron"
+
+gem 'bootstrap', '~> 5.1.3'
+
+gem 'jquery-rails'
+
+gem 'cssbundling-rails'
+
+
+group :development, :test do
+  gem 'rspec-rails' # собственно сам RSpec
+  gem 'factory_bot_rails' # фабрики, которые серьезно упрощают жизнь тестировщика
+  gem 'database_cleaner' # штука, которая очищает тестовую БД между тестами
+  gem 'rails-controller-testing' # позволяет тестировать контроллеры чуть в более широком смыслке
+end
+
+gem "image_processing", ">= 1.2"
+
+gem "rubocop"
+
+gem "rubocop-rspec"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -19,7 +56,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", "~> 1.0"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -70,3 +107,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "devise", "~> 4.9"

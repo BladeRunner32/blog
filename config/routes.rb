@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  
-  root "articles#index" #начальная страница сайта
+  devise_for :users
+
+  root 'static_pages#home'
 
   resources :articles do
     resources :comments

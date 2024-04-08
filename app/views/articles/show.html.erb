@@ -1,5 +1,4 @@
-<%= render "special_layouts/header" %>
-<h1><%= @article.title %></h1>
+<h2><%= @article.title %></h2>
 
 <p><%= @article.body %></p>
 <% if @article.created_at != @article.updated_at %>
@@ -9,18 +8,17 @@
 <% end %>
 
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-</ul>
-<ul>
-  <li><%= link_to "Destroy", article_path(@article), data: {
+  <%= link_to "Edit", edit_article_path(@article), class: "btn btn-success" %>
+  <%= link_to "Destroy", article_path(@article), data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"  
-  }%></li>
-</ul>
+  }, class: "btn btn-danger"%>
 
-<h2>Comments</h2>
+  <br>
+  </br>
+
+<h4>Comments</h4>
 <%= render @article.comments %>
 
-<h2>Add a comment:</h2>
+<h4>Add a comment:</h4>
 <%= render "comments/form" %>

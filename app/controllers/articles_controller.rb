@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
- 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-  
+
+  #http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def index
     @articles = Article.all #извлекаем все статьи из БД
   end
@@ -9,27 +9,27 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
-  
+
   def new
     @article=Article.new
   end
-  
+
   def create
     @article=Article.new(article_params)
-    
+
     if @article.save
       redirect_to @article
     else
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def edit
     @article=Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id]) 
+    @article = Article.find(params[:id])
 
     if @article.update(article_params)
       redirect_to @article
